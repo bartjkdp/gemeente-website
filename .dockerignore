@@ -1,0 +1,15 @@
+.git
+.github
+.astro
+.next
+**/.next
+dist
+node_modules
+**/node_modules
+npm-debug.log*
+Dockerfile
+docker-compose*.yml
+.env
+.env.*
+.DS_Store
+payload.db
