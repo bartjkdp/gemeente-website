@@ -1,4 +1,20 @@
 services:
+  gemeente-website:
+    image: ${APP_IMAGE:-gemeente-website}:${APP_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      OPEN_PRODUCT_API_URL: ${OPEN_PRODUCT_API_URL:-http://open-product-web:8000/producttypen/api/v1}
+      OPEN_PRODUCT_API_TOKEN: ${OPEN_PRODUCT_API_TOKEN:-465b0c3790199bab55b3639ba32df0470baabeb2}
+    ports:
+      - "4321:4321"
+    depends_on:
+      open-product-web:
+        condition: service_started
+    networks:
+      - open-product
+
   open-product-db:
     image: postgres:17
     environment:
