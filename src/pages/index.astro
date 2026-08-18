@@ -1,0 +1,42 @@
+---
+import HomePage from '../components/HomePage';
+import { getNewsItems } from '../lib/news';
+import { getThemes } from '../lib/openProduct';
+import '@amsterdam/design-system-tokens/dist/index.theme.css';
+import '@amsterdam/design-system-css/dist/index.css';
+
+const themes = await getThemes();
+const fallbackNewsItems = [
+  {
+    title: 'Werkzaamheden in de stad',
+    description: 'Lees waar en wanneer we werken aan straten, bruggen, parken en buurten in Amsterdam.',
+    image: 'https://picsum.photos/640/360?random=11',
+    href: '#',
+  },
+  {
+    title: 'Meer ruimte voor voetgangers',
+    description: 'Amsterdam maakt lopen veiliger en prettiger met extra aandacht voor drukke plekken.',
+    image: 'https://picsum.photos/640/360?random=12',
+    href: '#',
+  },
+  {
+    title: 'Nieuwe manieren om afval op te halen',
+    description: 'De gemeente test slimme en schone oplossingen voor afvalinzameling in verschillende buurten.',
+    image: 'https://picsum.photos/640/360?random=13',
+    href: '#',
+  },
+];
+const newsItems = await getNewsItems(fallbackNewsItems);
+---
+
+<html lang="nl" class="ams-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Homepage van de gemeente Amsterdam" />
+    <title>Gemeente Amsterdam</title>
+  </head>
+  <body class="ams-body">
+    <HomePage newsItems={newsItems} themes={themes} />
+  </body>
+</html>

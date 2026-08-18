@@ -1,0 +1,41 @@
+---
+import { Grid, Heading, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react';
+import SiteLayout from '../../components/SiteLayout';
+import { getProductSlug, getThemes } from '../../lib/openProduct';
+import '@amsterdam/design-system-tokens/dist/index.theme.css';
+import '@amsterdam/design-system-css/dist/index.css';
+
+const themeSlug = Astro.params.thema;
+const themes = await getThemes();
+const theme = themes.find((theme) => theme.slug === themeSlug);
+
+if (!theme) {
+  return new Response(null, { status: 404, statusText: 'Thema niet gevonden' });
+}
+---
+
+<html lang="nl" class="ams-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={`Producten binnen thema ${theme.name}`} />
+    <title>{theme.name} | Gemeente Amsterdam</title>
+  </head>
+  <body class="ams-body">
+    <SiteLayout>
+      <Grid as="main" id="inhoud" paddingTop="large" paddingBottom="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Heading className="ams-mb-xl" level={1}>{theme.name}</Heading>
+          <Paragraph className="ams-mb-xl" size="large">Producten binnen dit onderwerp.</Paragraph>
+          <UnorderedList>
+            {theme.producttypes.map((producttype) => (
+              <UnorderedList.Item>
+                <Link href={`/${theme.slug}/${getProductSlug(producttype)}`}>{producttype.naam}</Link>
+              </UnorderedList.Item>
+            ))}
+          </UnorderedList>
+        </Grid.Cell>
+      </Grid>
+    </SiteLayout>
+  </body>
+</html>

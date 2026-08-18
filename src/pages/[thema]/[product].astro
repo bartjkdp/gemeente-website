@@ -1,0 +1,26 @@
+---
+import ProductPage from '../../components/ProductPage';
+import { getProductTypeByThemeAndSlug } from '../../lib/openProduct';
+import '@amsterdam/design-system-tokens/dist/index.theme.css';
+import '@amsterdam/design-system-css/dist/index.css';
+
+const themeSlug = Astro.params.thema;
+const productSlug = Astro.params.product;
+const producttype = themeSlug && productSlug ? await getProductTypeByThemeAndSlug(themeSlug, productSlug) : undefined;
+
+if (!producttype) {
+  return new Response(null, { status: 404, statusText: 'Product niet gevonden' });
+}
+---
+
+<html lang="nl" class="ams-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={producttype.samenvatting || producttype.naam} />
+    <title>{producttype.naam} | Gemeente Amsterdam</title>
+  </head>
+  <body class="ams-body">
+    <ProductPage producttype={producttype} />
+  </body>
+</html>

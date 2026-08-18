@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.next/
+payload.db
+payload.db-*
+public/uploads/
+.env
+.env.*

@@ -1,0 +1,56 @@
+services:
+  open-product-db:
+    image: postgres:17
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./open-product/docker-init-db.sql:/docker-entrypoint-initdb.d/init_db.sql:ro
+    networks:
+      - open-product
+
+  open-product-redis:
+    image: redis:7
+    networks:
+      - open-product
+
+  open-product-init:
+    image: maykinmedia/open-product:${OPEN_PRODUCT_TAG:-latest}
+    environment: &open_product_env
+      DJANGO_SETTINGS_MODULE: openproduct.conf.docker
+      SECRET_KEY: django-insecure-local-development-key
+      DB_NAME: openproduct
+      DB_USER: openproduct
+      DB_HOST: open-product-db
+      DISABLE_2FA: "true"
+      CACHE_DEFAULT: open-product-redis:6379/0
+      CELERY_BROKER_URL: redis://open-product-redis:6379/1
+      CELERY_RESULT_BACKEND: redis://open-product-redis:6379/1
+      ALLOWED_HOSTS: "*"
+      OTEL_SDK_DISABLED: "true"
+      RUN_SETUP_CONFIG: "true"
+      LOAD_UPL: "true"
+    command: sh -c "/setup_configuration.sh && /load_upl.sh"
+    volumes:
+      - ./open-product/setup_configuration:/app/setup_configuration:ro
+    depends_on:
+      - open-product-db
+      - open-product-redis
+    networks:
+      - open-product
+
+  open-product-web:
+    image: maykinmedia/open-product:${OPEN_PRODUCT_TAG:-latest}
+    environment: *open_product_env
+    ports:
+      - "8000:8000"
+    depends_on:
+      open-product-db:
+        condition: service_started
+      open-product-init:
+        condition: service_completed_successfully
+    networks:
+      - open-product
+
+networks:
+  open-product:
+    name: gemeente-website-open-product
