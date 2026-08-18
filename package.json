@@ -2,11 +2,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "cms:dev": "next dev cms -p 3001",
-    "cms:build": "next build cms",
-    "cms:start": "next start cms -p 3001",
-    "payload": "payload"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@amsterdam/design-system-css": "4.2.0",
@@ -14,11 +10,7 @@
     "@amsterdam/design-system-tokens": "4.1.0",
     "@astrojs/node": "latest",
     "@astrojs/react": "latest",
-    "@payloadcms/db-sqlite": "^3.86.0",
-    "@payloadcms/next": "^3.86.0",
     "astro": "latest",
-    "next": "^16.3.1",
-    "payload": "^3.86.0",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },

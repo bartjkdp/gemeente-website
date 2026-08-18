@@ -1,9 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "@payload-config": ["../payload.config.ts"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../payload.config.ts", "../src/payload/**/*.ts"]
-}
