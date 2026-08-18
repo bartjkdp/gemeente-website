@@ -24,8 +24,8 @@ type ProductTypeListResponse = {
   results: OpenProductProductType[];
 };
 
-const openProductBaseUrl = import.meta.env.OPEN_PRODUCT_API_URL || 'http://localhost:8000/producttypen/api/v1';
-const openProductToken = import.meta.env.OPEN_PRODUCT_API_TOKEN || '465b0c3790199bab55b3639ba32df0470baabeb2';
+const openProductBaseUrl = process.env.OPEN_PRODUCT_API_URL || 'http://localhost:8000/producttypen/api/v1';
+const openProductToken = process.env.OPEN_PRODUCT_API_TOKEN || '465b0c3790199bab55b3639ba32df0470baabeb2';
 
 const getHeaders = () => ({
   Accept: 'application/json',

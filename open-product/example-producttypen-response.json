@@ -1,0 +1,159 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "naam": "Paspoort aanvragen",
+      "code": "PASPOORT",
+      "samenvatting": "Vraag een nieuw paspoort aan bij de gemeente. Maak eerst een afspraak en neem een pasfoto en uw oude reisdocument mee.",
+      "uniforme_product_naam": "Paspoort",
+      "themas": [
+        {
+          "naam": "Identiteit en documenten"
+        }
+      ],
+      "prijzen": [
+        {
+          "actief_vanaf": "2026-01-01",
+          "prijsopties": [
+            {
+              "bedrag": "83.87",
+              "beschrijving": "Paspoort voor volwassenen"
+            },
+            {
+              "bedrag": "63.42",
+              "beschrijving": "Paspoort voor kinderen tot 18 jaar"
+            }
+          ],
+          "prijsregels": []
+        }
+      ],
+      "links": [
+        {
+          "naam": "Meer informatie over paspoort aanvragen",
+          "url": "https://www.amsterdam.nl/veelgevraagd/paspoort-aanvragen/"
+        }
+      ],
+      "acties": [
+        {
+          "naam": "Afspraak maken",
+          "url": "https://www.amsterdam.nl/afspraak-maken/"
+        }
+      ],
+      "contacten": [
+        {
+          "naam": "Gemeente Amsterdam",
+          "email": "info@amsterdam.nl",
+          "telefoonnummer": "14 020",
+          "rol": "Klantcontact"
+        }
+      ],
+      "locaties": [
+        {
+          "naam": "Stadsloket Centrum",
+          "straat": "Amstel",
+          "huisnummer": "1",
+          "postcode": "1011 PN",
+          "stad": "Amsterdam"
+        }
+      ],
+      "parameters": [
+        {
+          "naam": "Levertijd",
+          "waarde": "5 werkdagen"
+        }
+      ],
+      "keywords": ["paspoort", "reisdocument", "identiteitsbewijs"]
+    },
+    {
+      "naam": "Verhuizing doorgeven",
+      "code": "VERHUIZING",
+      "samenvatting": "Geef uw verhuizing binnen of naar Amsterdam online door. Dit kan vanaf 4 weken voor de verhuizing tot 5 dagen erna.",
+      "uniforme_product_naam": "Verhuizing doorgeven",
+      "themas": [
+        {
+          "naam": "Wonen en omgeving"
+        }
+      ],
+      "prijzen": [],
+      "links": [
+        {
+          "naam": "Informatie over verhuizen",
+          "url": "https://www.amsterdam.nl/veelgevraagd/verhuizing-doorgeven/"
+        }
+      ],
+      "acties": [
+        {
+          "naam": "Verhuizing online doorgeven",
+          "url": "https://www.amsterdam.nl/veelgevraagd/verhuizing-doorgeven/"
+        }
+      ],
+      "contacten": [
+        {
+          "naam": "Basisinformatie",
+          "telefoonnummer": "14 020",
+          "rol": "Burgerzaken"
+        }
+      ],
+      "locaties": [],
+      "parameters": [
+        {
+          "naam": "Kosten",
+          "waarde": "Gratis"
+        }
+      ],
+      "keywords": ["verhuizen", "adres", "inschrijven"]
+    },
+    {
+      "naam": "Afvalpas aanvragen",
+      "code": "AFVALPAS",
+      "samenvatting": "Vraag een afvalpas aan als uw afvalpas kwijt, kapot of niet ontvangen is. Met de afvalpas opent u ondergrondse containers in uw buurt.",
+      "uniforme_product_naam": "Afvalpas",
+      "themas": [
+        {
+          "naam": "Afval"
+        }
+      ],
+      "prijzen": [
+        {
+          "actief_vanaf": "2026-01-01",
+          "prijsopties": [
+            {
+              "bedrag": "0.00",
+              "beschrijving": "Eerste vervangende afvalpas"
+            }
+          ],
+          "prijsregels": []
+        }
+      ],
+      "links": [
+        {
+          "naam": "Alles over afval",
+          "url": "https://www.amsterdam.nl/afval/"
+        }
+      ],
+      "acties": [
+        {
+          "naam": "Afvalpas aanvragen",
+          "url": "https://www.amsterdam.nl/veelgevraagd/afvalpas-aanvragen/"
+        }
+      ],
+      "contacten": [
+        {
+          "naam": "Afval en reiniging",
+          "telefoonnummer": "14 020",
+          "rol": "Servicepunt"
+        }
+      ],
+      "locaties": [],
+      "parameters": [
+        {
+          "naam": "Levertijd",
+          "waarde": "Binnen 5 werkdagen"
+        }
+      ],
+      "keywords": ["afvalpas", "container", "afval"]
+    }
+  ]
+}
